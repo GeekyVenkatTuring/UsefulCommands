@@ -1,0 +1,51 @@
+Git commands:
+
+Step 1:install git in local machine
+sudo apt update
+sudo apt install git
+git --version
+
+Step2:
+Create Github account
+username-mvramaiah1992@gmail.com
+pwd-*************
+
+Create repository with  name "UsefulCommands"
+https://github.com/GeekyVenkatTuring/UsefulCommands.git
+
+Step3:Connect Github with local git
+Create folder "UsefulCommands" in /home/vishvaksen/git/
+Open Terminal and run below commands
+
+
+1.cd /home/vishvaksen/git/UsefulCommands
+2.git init
+3.Connect Github repository to git
+git remote add origin "https://github.com/GeekyVenkatTuring/UsefulCommands.git"
+4.Pull master branch with files into local git repository
+git pull origin master
+5.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reference links:
+https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart
+https://www.youtube.com/watch?v=xuB1Id2Wxak
