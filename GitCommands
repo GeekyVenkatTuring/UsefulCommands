@@ -38,26 +38,22 @@ git commit -m "First Commit for Git Commands"
 other useful commands:
 1.If you want to commit all the files in the folder,use below command to add it to the staging area
 git add -A
-git commit -a		
+git commit -a
 
+2.if you want to check complete logs of all the commits,use below command
+git log
 
+Create local branches other than master branch:
+1.git branch <name of the branch>
+2.TO switch from master branch to local branch
+git checkout <name of the branch>
+3.TO merge local branch to master branch
+a.switch out to master
+git checkout master
+b.merge the local branch
+git merge <name of the branch>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
 
 
 Reference links:
