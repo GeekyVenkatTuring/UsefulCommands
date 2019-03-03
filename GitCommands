@@ -53,6 +53,9 @@ git checkout master
 b.merge the local branch
 git merge <name of the branch>
 
+
+Use git rebase to update the branches with other branches
+
 		
 
 
