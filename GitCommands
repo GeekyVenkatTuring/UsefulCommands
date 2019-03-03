@@ -24,7 +24,21 @@ Open Terminal and run below commands
 git remote add origin "https://github.com/GeekyVenkatTuring/UsefulCommands.git"
 4.Pull master branch with files into local git repository
 git pull origin master
-5.
+5.Create new file in the local repository
+mkdir GitCommands.txt
+6.Add this file to the stageing area or index so that we can commit these changes
+git add GitCommands
+7.To check if this file is added in the Staging or not,use below command
+git status
+8.Now use commit command to push it to the local repository and while committing we need to provide message
+git commit -m "First Commit for Git Commands"
+
+
+
+other useful commands:
+1.If you want to commit all the files in the folder,use below command to add it to the staging area
+git add -A
+git commit -a		
 
 
 
