@@ -95,6 +95,15 @@ git log--this will display all commit object with their hash value
 From that hash value ,copy only first eight digits and use below command
 git checkout <EightDigitsHashValue> <file name>
 
+
+To avoid typing the password when you push the changes to the remote repository,use ssh instead of https
+Using HTTPS:
+git remote add origin "<https link from Github>"
+Using SSH:
+git remote set-url origin <ssh from github>
+git remote set-url origin git@github.com:GeekyVenkatTuring/UsefulCommands.git
+
+
 Reference links:
 https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-18-04-quickstart
 https://www.youtube.com/watch?v=xuB1Id2Wxak
