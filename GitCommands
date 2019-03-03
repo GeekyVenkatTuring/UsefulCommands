@@ -56,7 +56,32 @@ git merge <name of the branch>
 
 Use git rebase to update the branches with other branches
 
+
+To push your changes to Github remote repository
+1.Generate ssh key
+ssh-keygen
+Below is the sample log when you run that command
+ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/vishvaksen/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/vishvaksen/.ssh/id_rsa.
+Your public key has been saved in /home/vishvaksen/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:N0PKrbvhj6+2hPmcpSjDyLKMLnTRjGjFY0f5KbLFl88 vishvaksen@vishvaksen-Aspire-A515-51G
+
+
+From that above log, copy the folder to which that key is generated
+cat /home/vishvaksen/.ssh/id_rsa.pub
 		
+It will give that whole key and copy that key and add it in the git hub account
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkagpEhJtYS5kLx+ojSCb1VbFyMAGC4GLooAc795H4dxCcWtixEm2M+fLuo6Y6iR1ghqCIm6hTuOgI8uMlPm5lW5YTpqLF1SVB4w2LeHrKafWu2qsu0mVORSM3Ce57mH/oig6C6BIv4RfK+CrQvulMCq/BuQ7erQjEm9PP9pZROxr0OaYscS64VdmkqhLr2nIZxnLn5amxaTLc7J/cH8bYguvhRHkZg6O5dnpf6rA3uxP5SO4W7kZVUssW5i7/Cyf2j/4botHU79boYe5C0JcDPhDPU1WGpwYs+g5Yot/9v5ZS64iwb4N0HzEZlI7hyL4W6VHq0pfPEl/H+NhO3OXB vishvaksen@vishvaksen-Aspire-A515-51G
+
+Login into Github account->Go to Settings->SSH and GPG keys->add the key
+
+To authenticate the GitHUb account with your local git repository after adding the ssh key,use below command
+ssh -T git@github.com
 
 
 Reference links:
