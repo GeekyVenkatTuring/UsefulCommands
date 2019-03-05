@@ -1,0 +1,43 @@
+Day1:05-03-2018
+
+Some Important things learned today:
+
+1.How indexing works in Database:
+
+Indexing is used to improve the performance while querying the data in database
+In disk,database data is stored in blocks and each block contains fixed set of data
+
+For suppose,we have 5 million records in the table and each block stores 5 records of data
+Number of blocks will be 5000000/5=1 million blocks
+
+If we have to query a record, we have to do linear seach in each block and it will take 1 million searches in the worst case scenario
+
+To overcome this problem,we intorduce indexes on the column
+
+If we create index on the column, then auxiliary data strctures with the indexed column and pointer to the record is created
+
+index=column to which index need to be defined + pointer to the record
+
+and column will be either sorted in the indexed data strcture or we create hash for each record in the indexed data strcture
+
+As it is sorted, we can use binary search to find that record in the indexed data strctures and it will take log( 1million) which is very less compared to seach without index
+
+Drawbacks of indexing:
+
+For indexing we use our disk space to create that seperate data structure
+and when ever we try to insert a record in the table,it will by default insert the indexed column in the seperate data structure
+
+ 
+2.Cardinality and Indexing:
+
+Cardinality of column tells how unique is the column
+
+If we have 1000 values in a column and in that we have only 500 unique values,then the cardinality is equal to 500
+
+low cardinality means we have less unique values for that column,so creating index on that column is useless
+
+High cardinality will give better results if we use along with the index 
+
+
+Indexing is implemented using hashing which is called hash index and B-trees
+
