@@ -1,0 +1,55 @@
+//Installing MongoDB
+
+Mongo db is part of open tool repositories in the ubuntu,so we can download directly from apt-get commands
+
+sudo apt-get install mongodb
+sudo apt-get update---this will provide the latest version
+
+2.Start the MongoDB service
+sudo service mongodb start
+
+
+working MongoDB shell
+1.Run below command to get into mongodb shell
+mongo
+2.To check default database in the mongodb
+show dbs;
+3.create custom/own database
+use mydb;
+4.Print the current database
+db;
+5.Print the collection in the db
+show collections;
+6.Print documents in the collection
+db.mycol.find();
+
+
+
+
+
+
+Few points to remember:
+1.if you want to create collection or document,use below command
+db.mycol.insert({"name":"Mark"});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reference documents and questions i searched related to mongodb in google:
+How to maintain referentail integrity in the MongoDB
+https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb
+How to achieve one to many relationship in the mongodb
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+
