@@ -5,6 +5,12 @@ Mongo db is part of open tool repositories in the ubuntu,so we can download dire
 sudo apt-get install mongodb
 sudo apt-get update---this will provide the latest version
 
+Default port is used by mongodb while installing is 27017
+
+To find mongodb is installed or not ,please use below commands
+mongod --version
+mongo --version
+
 2.Start the MongoDB service
 sudo service mongodb start
 
@@ -24,6 +30,64 @@ show collections;
 db.mycol.find();
 
 
+MongoDb compass is the GUI for mongodb server
+Installing mongodb compass
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.15.1_amd64.deb;
+sudo dpkg -i mongodb-compass_1.15.1_amd64.deb;
+mongodb-compass;
+
+Setting authentication in the MongoDB:
+1.start the mongod instance which is background process used for accepting requests(see Miscellaneous section for more details)
+start MongoDB instance with out access control
+mongod --port 27017 --dbpath /data/db1
+2.start mongo shell
+mongo --port 27017
+3.create the user administrator with userAdminAnyDatabase role
+use admin --switch to admin database
+db.createUser(
+	{
+		user: "xxxxxxxxx",
+		pwd:"xxxxxxxxxxx",
+		roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+	}
+
+)
+4.Restart MongoDB instance with access control
+mongod --auth --port 27017 --dbpath <to check the db path ,please check the /etc/mongodb.config>
+In my machine,the default path is /var/lib/path
+This will start running and will manage the mongodb server
+Sometimes,if you see below error in starting the server,please clean the diagnostic folder(rm -f /var/lib/mongodb/diagnostic.data/*)
+
+
+2019-03-05T20:47:04.482+0530 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/var/lib/mongodb/diagnostic.data'
+2019-03-05T20:47:04.482+0530 I NETWORK  [initandlisten] waiting for connections on port 27071
+2019-03-05T20:47:05.008+0530 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost.Ok
+
+
+5.Now open another terminal,run 
+mongo --port 27017 -u <xxxxx> -p <xxxxx> --authenticationDatabase "admin"
+After running these commands, in the mongodb server terminal ,you may notice below errors
+
+a.Unauthorized: not authorized on admin to execute command { replSetGetStatus: 1.0, forShell: 1.0, $db: "admin" }
+For this error, we need grant below role to the user
+db.grantRolesToUser(    XXXXXX ,    [ "clusterManager" ] )
+
+
+b.Unauthorized: not authorized on admin to execute command { getLog: "startupWarnings", $db: "admin" }
+db.updateUser(
+... ... XXXXXX,
+... ... {
+... ... roles 
+... ... :[{role:"root",db:"admin"}]});
+or you can use db.grantRolesToUser(XXXXX,"admin");
+
+c.If you want to check the users and their roles for that database,use below commands
+use <db>---this will get into that db session
+db.getUser("<user name>");
+
+
+
+
 
 
 
@@ -31,6 +95,8 @@ db.mycol.find();
 Few points to remember:
 1.if you want to create collection or document,use below command
 db.mycol.insert({"name":"Mark"});
+2.If you want to check the db path for mongodb ,please use the below config file from below mentioned path
+/etc/mongod.config
 
 
 
@@ -39,7 +105,19 @@ db.mycol.insert({"name":"Mark"});
 
 
 
+miscellaneous Concepts:
 
+1.Difference between MongoD and Mongo:
+MongoD:
+It stands for Mongo Daemon
+Lets first understand what is daemon:
+A daemon (pronounced DEE-muhn) is a program that runs continuously and exists for the purpose of handling periodic service requests that a computer system expects to receive. The daemon program forwards the requests to other programs (or processes) as appropriate. Each server of pages on the Web has an HTTPD or Hypertext Transfer Protocol daemon that continually waits for requests to come in from Web clients and their users.
+
+Here Mongo daemon is background process used by Mongod server to get things done
+This process is responsible for managing the whole MongoDB server tasks such as accepting requests, responding to users, managing memory requirement of MongoDB server operations and other things essential for MongoDB Server to run.
+
+Mongo:
+Mongo is an interactive JavaScript shell interface to MongoDB, which provides a powerful interface for system administrators as well as a way for developers to test queries and operations directly with the database. mongo also provides a fully functional JavaScript environment for use with a MongoDB
 
 
 
@@ -52,4 +130,9 @@ How to maintain referentail integrity in the MongoDB
 https://www.mongodb.com/blog/post/transitioning-from-relational-databases-to-mongodb
 How to achieve one to many relationship in the mongodb
 https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+installing mongdb compass
+https://docs.mongodb.com/compass/master/install/
+Setting Authentication in MongoDB
+https://medium.com/mongoaudit/how-to-enable-authentication-on-mongodb-b9e8a924efac
+https://docs.mongodb.com/manual/tutorial/enable-authentication/
 
