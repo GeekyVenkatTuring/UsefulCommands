@@ -36,10 +36,17 @@ wget https://downloads.mongodb.com/compass/mongodb-compass_1.15.1_amd64.deb;
 sudo dpkg -i mongodb-compass_1.15.1_amd64.deb;
 mongodb-compass;
 
+But installing mongodb from above commands is not working,so download the mongodb software(.deb package) from the MOngoDB website
+
 Setting authentication in the MongoDB:
 1.start the mongod instance which is background process used for accepting requests(see Miscellaneous section for more details)
 start MongoDB instance with out access control
-mongod --port 27017 --dbpath /data/db1
+mongod --port 27017 --dbpath <to check the db path ,please check the /etc/mongodb.config>
+In my machine,the default path is /var/lib/mongodb
+While running the below command ,you may face the unable to lock read only file directory you need to change the rights of the file using below linux command
+sudo chown -R $USER <--dbpath>
+
+
 2.start mongo shell
 mongo --port 27017
 3.create the user administrator with userAdminAnyDatabase role
@@ -54,7 +61,7 @@ db.createUser(
 )
 4.Restart MongoDB instance with access control
 mongod --auth --port 27017 --dbpath <to check the db path ,please check the /etc/mongodb.config>
-In my machine,the default path is /var/lib/path
+In my machine,the default path is /var/lib/mongodb
 This will start running and will manage the mongodb server
 Sometimes,if you see below error in starting the server,please clean the diagnostic folder(rm -f /var/lib/mongodb/diagnostic.data/*)
 
