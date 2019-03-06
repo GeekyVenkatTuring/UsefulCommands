@@ -1,0 +1,17 @@
+//Learning about linux commands
+
+chown-
+In Linux,all files are associated with owner and group.
+The chown command is used to change the user and group ownership of the given file
+
+To get the root user for that machine,please use the below command:
+$USER
+
+to change the ownership of the file:
+sudo chown -R $USER <file path>
+
+in above command -R used for recursive and in some commands we use -r for recursive
+Both -R and -r are valid
+
+
+
