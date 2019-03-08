@@ -71,6 +71,11 @@ upsert:MongoDB upsert option is used with update method which creates a new docu
 In above command,it is false-because don't create any documents if it doesn't match the criteria
 Multi:Set to true,Update all the documents that meet the query criteria
 
+Updating one field in the Document;
+db.<collectionname>.update({'<filtering criteria field':"<value of that filtering criteria field"},{$set:{'<>','<>'}},{multi:<true or false>});
+example:
+db.category.update({name:"Electronics"},{$set:{sub_category:[ObjectId("5c81c9927afeab286b341f2e")]}})
+
 
 To add document id to another document:
 Projection in the MongoDB:

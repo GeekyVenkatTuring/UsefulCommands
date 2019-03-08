@@ -1,0 +1,18 @@
+//Comparing SQL vs Nosql
+
+SQL-Oracle sql
+NoSQL-MongoDB
+
+
+1.Sql is relational database and nosql is non relational or distributed database
+2.Sql defines and manipulates data using Structured Query Langauage.This is very powerful and we can write it for complex queries
+But biggest disadvantage is we need to have predesigned schema before hand .But using nosql we 
+
+
+
+
+
+
+
+Reference links:
+https://www.geeksforgeeks.org/difference-between-sql-and-nosql/
