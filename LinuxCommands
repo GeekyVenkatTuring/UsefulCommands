@@ -14,4 +14,21 @@ in above command -R used for recursive and in some commands we use -r for recurs
 Both -R and -r are valid
 
 
+Set title to the Linux gnome-terminal:
+Please edit the bashrc file(cd ~/.bashrc) and add the below code snippet in the file
+set-title(){
+  ORIG=$PS1
+  TITLE="\e]2;$@\a"
+  PS1=${ORIG}${TITLE}
+}
 
+Whenever we open the new terminal,we can set your own title using below commands
+
+set-title "git"
+
+
+
+
+
+Reference Documents:
+https://blog.programster.org/ubuntu-16-04-set-terminal-title

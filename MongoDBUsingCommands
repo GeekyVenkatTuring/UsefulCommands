@@ -1,0 +1,89 @@
+MongoDB working commands:
+
+Collection:Table
+Document:Row
+fields:COlumns
+
+Joins are not supported in the MongoDB(Do Joins while write but not read)
+
+use testdb-Create database if it doesn't exist or use the existing db
+
+show dbs -list out all dbs in the System
+
+For database to appear in the system, we need to add one document atleast
+
+1.Database:
+a.Create Database
+use <database name>
+b.Drop Database
+db.dropDatabase()
+
+
+2.insert command:
+db.category.insert({"name":"Electronics"});
+
+while inserting document,if collection is not created it will create automatically
+But to create collection explictly,we will use 
+db.createCollection(<name>,<options>)
+<name>-name is the collection name
+<options>-we can specify options about memory size and indexing
+Example:
+Capped
+autoIndexId
+size
+max
+
+db.createCollection("<name of the collection>":{capped:true,size:102400});
+
+To drop collection ,use db.<collectionname>.drop()
+
+3.Datatypes in the collection:
+String,Integer,Boolean,Double,min/max,Arrays,TimeStamp,Object,Null,Symbol,Date,ObjectID,Binary Data,Code,Regular Expression
+
+use insert command to insert all those datatypes:
+db.categories.insert(
+{_id:<12bytehexadecimal>,
+name:"Electronics",
+subCategory:[ObjectID('<id of sub category document')]
+})
+
+create subcategory document:
+db.subcategory.insert({
+name:"Mobiles"
+});
+
+To find the documents in the collection,use below command
+db.<collectionname>.find({<field>:<operation>},{<field>:1});
+In above set,if we see there are two curly braces:
+a.In the first curly brace,we provide the field and operation that need to be applied on the field
+Example:
+db.category.find({"name":"Electronics"})---this means that find the document whose name is equal to Electronics
+db.category.find({"name":{$ne:"Electronics"}});--this means that find the document whose name is not equal to Electronics
+
+Note:If we don't specify anything in the first curly braces,it will return all the documents
+Example:db.category.find({})--it will return all the documents in the categories collection
+b.In the second curly brace,we provide the field and flag either 0 or 1 to include it in the result set
+
+To update the document with the new field,use set command
+db.<collectionname>.update({},{$set:{"sub_category":[]}},<upsert>,<multi>);
+In above command, we have
+upsert:MongoDB upsert option is used with update method which creates a new document if the query does not retrieve any documents satisfying the criteria
+In above command,it is false-because don't create any documents if it doesn't match the criteria
+Multi:Set to true,Update all the documents that meet the query criteria
+
+
+To add document id to another document:
+Projection in the MongoDB:
+Select only few fields from the Documents that are present in the result set after executing the query criteria
+Example:
+db.<collectionname>.find()
+
+
+
+Reference:
+1.Tutorials point:
+https://www.tutorialspoint.com/mongodb/mongodb_update_document.htm
+2.To add new field to all the documents in the collection,use below link
+https://stackoverflow.com/questions/7714216/add-new-field-to-every-document-in-a-mongodb-collection?rq=1
+
+
