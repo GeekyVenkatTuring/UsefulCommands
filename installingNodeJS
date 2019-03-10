@@ -1,0 +1,87 @@
+installing node js:
+//Check if node js installed or not
+    1  node --version
+//Run the below command but it will not run as curl is not installed
+    2  curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+    3  curl
+//To install curl,run below command
+    4  sudo apt install curl
+//I am not sure why this is run
+    5  sudo apt-get install python-software-properties
+//After curl is run,run below command and check what is Long Term Supported
+    6  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+//Run below command to install node js
+    7  sudo apt-get install -y nodejs
+//I am not sure why I ran below command but as far as I remember,it is for installing some plugins
+    8  sudo apt-get install gcc g++ make
+//After sucessfully installing node js ,run below command to check node js is installed or not
+    9  node --version
+//this is for writing the code in visual studio but below command will not be run as VS coder is not installed
+   10  code .
+//I think below command doesn't run to install visual studio,So download the deb file from google and install it
+   11  sudo snap install vscode
+//After successful installation,it will open VSCode after running below command
+   12  code .
+//I don't know why I ran below command
+   13  sudo snap install vscode
+//Below is the node version
+   20  node --version
+//Below is the node package manager version
+   21  npm --version
+   22  cd ..
+   23  mkdir contactlist
+   24  cd contactlist/
+//Start npm for that project and while running the below command,it will few questions like author,description and main js file which we will name as app.js
+and at last it will create package.json file
+   25  npm init
+//Write the code in visual studio
+   26  code .
+//install EXpress for the MEAN stack developer and using save property in the below command ,will make express version to be updated in the package.json
+   27  npm install express --save
+//install cors and body parser--Have to study more about these packages
+   28  npm install mongoose cors body-parser --save
+//Below command will run the app.js and print the console.log file
+   29  node app.js
+//But everytime whenever project is updated,we need to restart the node,instead of that use nodemon
+//nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected. 
+   31  npm install nodemon
+//After running the nodemon,it will not start the nodemon because of some issues
+   32  nodemon
+//From 33 to 64 are all the commands that are tried to install nodemon properly
+   33  npm install nodemon --save
+   34  nodemon
+   35  ls
+   36  node_modules/nodemon
+   37  cd node_modules/
+   38  nodemon
+   39  ls
+   40  lws | grep node*
+   41  ls | grep node*
+   42  cd nodemon/
+   43  ls
+   44  nodemon
+   45  cd ../..
+   46  npm install -g nodemon
+   47  nodemon
+   48  nodemon server.js
+   49  npm uninstall -g nodemon
+   50  npm install -g nodemon
+   51  sudo chown -r $USER /usr/lib/node_modules/
+   52  sudo chown -R $USER /usr/lib/node_modules/
+   53  npm install -g nodemon
+   54  ls -la /usr/lib/node_modules/
+   55  cd /usr/lib/node_modules/
+   56  ls -la
+   57  ls
+   58  sudo chown -R $USER /usr/lib/node_modules
+   59  ls -la
+   60  cd ..
+   61  ls -ltr
+   62  sudo npm install -g nodemon
+   63  cd ~/contactlist/
+   64  nodemon
+
+From above commands,I understand one thing,whenever there is some issue in updating read only file use sudo command.This will install everything properly
+sudo npm install -g nodemon
+
+
