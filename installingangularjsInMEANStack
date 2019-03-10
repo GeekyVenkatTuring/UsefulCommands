@@ -1,0 +1,21 @@
+    1  set-title angular
+    2  npm install @angular/cli
+    3  ng new client
+    4  sudo apt install ng-common
+    5  ng new client
+    6  npm link @angular/cli
+    7  sudo npm link @angular/cli
+    8  ng new client
+    9  cd client/
+   10  npm start
+   11  ng g component contacts
+   12  ng g service contact
+   13  ng new client
+   14  cd ..
+   15  ng new client
+   16  npm install @angular/http
+   17  sudo npm install @angular/http
+   18  cd client/
+   19  npm start
+   20  history
+
