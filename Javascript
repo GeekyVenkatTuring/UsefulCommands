@@ -1,0 +1,44 @@
+Javascript-
+
+JavaScript is scripting language which is less than programming languuage
+JavaScript is not compliled,it is interpreted
+But recently, it is compliled on the fly
+
+Advantages of using javascript are:
+1.used for non programmers
+2.can validate user input at client side before pushing it to the web server
+3.Less server interaction
+4.immediate feedback to the users
+5.increase interactivity
+
+
+use <script> tag in the html to embed the javascript in the html
+
+But if you remember, we use scriptlet tag in the JSP to embed java
+
+you can include <script> tag anywhere in the html but it is recommended use it in <head> tag
+
+
+
+
+
+Javascript:
+1.OOP concepts in Javascript
+2.Javascript callback functions
+3.Node JS internal architecture
+4.Express JS
+5.MongoDB
+6.MEAN stack development
+7.Angular CLI
+8.Bootstrap
+9.Difference between Javascript and JSP
+10.Difference between Single page application and Multi page application
+11.Difference between Single threaded event model and multi threaded stateless
+12.Difference between Javascript libraries and Javascript Framework
+13.Download Postman to run http methods
+14.Download code editor for javascript which is Visual Studio
+15.install npm,ng,angular cli ..etc
+
+
+
+
