@@ -19,3 +19,276 @@
    19  npm start
    20  history
 
+
+
+
+
+Install node js
+
+install Angular JS
+sudo npm install -g @angular/cli
+
+To check Angular installed or not ,run below command
+ng --version
+
+If it is installed,run below command to start Angular Peoject
+
+ng new hello-world
+
+Before start coding,make sure this is works and we can check that using below command..This command bundles all files and covert all typescript files into javascript files
+
+ng serve
+
+//Once it is up and running, we will open the folder in visual studio and Going through the folders that are created
+//currently I have installed with routing modules
+//All the files that are created in the Angular project has .ts extension
+//.ts means typescript file
+
+Below are the folders that are created:
+e2e
+node_modules-Used for development purpose
+src-->app-->inside app folder we have component and module components
+assets-Used for storing static images
+environments-Used storing configuration settings for both production and test environments
+favicon.io-icon displayed in the browser
+index.html-html contains angualr application
+main.ts--this is typescript file which is the starting point of the angular app
+polyfills.ts-import scripts for running the application
+stles.css-global styles for the application
+test.ts-for testing environment
+angular.json-configuration file for angular
+editorconfig-settings for editor
+gitignor-to ignor some files
+package.json-this is standard file for every node project--dependecies 
+tslint.json-static analysis code for typescript
+
+
+//If we change any source file,webpack automatically bundles the changes and complie it ..This is feature of webpack called Hot Module Replacement(HMR)
+//webpack automatically inserts all the bundles that are created into the index.html-->to check this run localhost:4200 in the browser and view the page source and below is the sample
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="es2015-polyfills.js" nomodule></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
+</html>
+
+Difference between AngularJS,Angular2,Angular4
+AngularJS-2010 as javascript framework to build web apps
+Angular redesigned with typescript
+Angular2-introduced in 2016
+Angular4- 
+Angular contains few libraries which are distributed as node modules
+@angular/core
+@angular/http
+@angular/routing
+
+Angular team dropped the versions and now it is called as Angular
+
+Course Strcture:
+1.Essentials
+2.Advanced Topics
+3.Final Project
+
+TypeScript Fundamentals:
+It is superset of Typescript
+
+TypeScript has strong typing which javascript doesn't have
+TypeScript has Object oriented features which Javascript doesn't have 
+TypeScript we can catch compile time errors
+
+Browsers doesn't understand TypeScript..so Compiler converts TypeScript to JavaScript
+
+Install TypeScript:
+sudo npm install -g typescript
+
+//to check typescript installed or not
+tsc --version
+
+Defining keywords in TypeScript:
+var sample;
+let sample;
+
+let keyword is scoped to nearest block but var keyword is to nearest function
+
+TypeScript reports the error but still generates the valid JavaScript
+
+Different types in TypeScript:
+let count =5;
+count='a';--it throws error in TypeScript because it is Strong Typing
+
+For Strong typing,we can use below fomat
+let a:number
+let b:boolean
+let c:string
+let d:any
+let e:number[]
+let f:any[]
+enum Color{Red,Green,Blue}
+let backGroundColor=Color.Red
+
+Type assertions
+let endWithC=(<string>message).endsWith('c')
+or
+let alternativeway=(message as string).endsWith('c')
+
+Arrow functions or lambda functions:
+let log=function(message){
+console.log("")
+}
+
+if you have sigle line
+let doLog=(message)=>console.log("")
+
+if you have multple lines
+let doLog=(message)=>{
+console.log("")
+}
+
+
+interfaces in typescript://first word should be capital
+interface Point{
+x:number
+y:number
+draw:()=>void
+}
+
+let drawPoint=(point:Point)=>{
+
+}
+
+Cohesion:
+things that are related to go together as a unit
+
+We use class to group properties and functions in one unit
+
+class Point{
+x:number
+y:number
+constructor(x:number,y:number){
+this.x=x
+this.y=y
+}
+draw(){
+console.log(this.x+this.y)
+}
+getDistance(){
+
+}
+}
+
+
+let point:Point
+point.draw()//it will throw error because point is undefined
+
+To get rid of this error,we need to explicitly allocate memory to this
+
+let point =new Point(1,2)
+point.x=1
+point.y=2
+point.draw
+
+Object is an instance of class
+
+Constructors in class:
+
+Java we can have multiple constructors but Typescript we can't have multiple constructors for this we need to create constructor with optional input values
+
+class Point{
+constructor(x?:number,y?:number){
+this.x=x
+this.y=y
+}
+getX(){
+return this.x
+}
+setX(value){
+}
+}
+
+In the above constructot,we have ? to make parameter as optional
+
+Access modifier:
+public-By default all members are public
+private
+class Point{
+private x:number
+}//only accessible in the class 
+protected
+
+
+class Point{
+constructor(private x?:number,private y?:number){
+}
+}
+
+In above code,we can remove all repetitive things
+
+Use getter and setter to get the values of the state
+
+
+Modules:
+
+Each file is a module.
+use export keyword to make file has module and so other files can see it
+
+import {Point} from './point' 
+
+But this is very different from angular modules
+
+
+Angular Fundamentals:
+Building Blocks of Angular apps:
+1.Components-Encapsulates Data+HTML template + Logic
+Every App has root component
+2.Modules
+Container for group of related components
+
+
+Creating Components:
+1.Create a component
+2.Register it in a module
+3.Add a element in an HTML markup
+
+1.Create Component
+Create file with name convention like <name>.component.ts
+Open that typescript
+//import component module from angular core
+ import {Component} from '@angular/core'
+
+use export command to make that file as module
+create annotation like below with required parameters
+@Component({
+selector:''
+template:''
+})
+ 
+2.Register in a module
+In Angular app,we have only one file which is a module(app.module.ts)
+
+NgModule is a decorator which make file as module
+@NgModule({
+  declarations: [
+    AppComponent,
+    CoursesComponent
+  ],
+
+add the component under declarations
+
+//Create Components using Angular CLI(Command line interface)
+
+So if we create components manually,there is a chance that we come across some issues.If you come across any errors ,use below remedy
+
+If there is any error in the angular app,
+Right click in the page and click on inspect element and go to console tab
+
+so we can use Angular Command Line Interface, to solve this issue
+ng g c <component name>
+//g means generate and c means component
+after running above command,it show below log
+
+CREATE src/app/course/course.component.css (0 bytes)//storing stylesheet
+CREATE src/app/course/course.component.html (25 bytes)//template
+CREATE src/app/course/course.component.spec.ts (628 bytes)//unit test for this component
+CREATE src/app/course/course.component.ts (269 bytes)//Actual component
+UPDATE src/app/app.module.ts (553 bytes)//Registered this component in module
+
+References:
+https://www.youtube.com/watch?v=k5E2AVpwsko
+
+

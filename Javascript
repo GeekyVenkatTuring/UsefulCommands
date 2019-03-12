@@ -76,6 +76,9 @@ Javascript:
 
 
 Reference links:
+Read little about Javascript Higher order functions
 https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad
 
+This is 3hour tutorial regarding javascript
+https://www.youtube.com/watch?v=PkZNo7MFNFg
 
