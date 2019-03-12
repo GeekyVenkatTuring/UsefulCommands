@@ -20,6 +20,41 @@ you can include <script> tag anywhere in the html but it is recommended use it i
 
 
 
+Higher order funtions:
+To understand Higher order functions,we need to understand functional programming
+Functional programming is programming where we can pass functions as arguments to other functions and return function from another function
+
+In JavaScript,similar to strings,numbers,objects we treat functions as objects
+
+whatever we can do with strings,we can do with functions
+
+We can create anonymous function and assign it to another variable
+Example:
+Creating function witout a name is called anonymous function
+function(x){
+return x*x
+}
+
+After creating anonymous function,we can assign this to a variable
+const sampleVariable=function(x){
+return x*x
+}
+
+After assigning function to variable,we can pass this function to another variables also
+const xxx=sampleVariable
+
+This can be more simplified using arrow functions
+const sampleVariable=(x)=>x*x
+
+From above function,we removed all the common things using arrow function like function keyword,{},return statement
+This can be applied if we have anonymous function with only one line with the return statement
+
+
+
+
+
+
+
 
 
 Javascript:
@@ -40,5 +75,7 @@ Javascript:
 15.install npm,ng,angular cli ..etc
 
 
+Reference links:
+https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad
 
 
