@@ -288,6 +288,81 @@ CREATE src/app/course/course.component.spec.ts (628 bytes)//unit test for this c
 CREATE src/app/course/course.component.ts (269 bytes)//Actual component
 UPDATE src/app/app.module.ts (553 bytes)//Registered this component in module
 
+Templates:
+
+Whenever we create component, we add template which is HTML markup to that component
+
+Example:
+@Component({
+    selector:'courses', //refer courses
+    template:'<h2>{{getTitle()}}</h2>'
+})
+export class CoursesComponent{
+    title="List of courses"
+    getTitle(){
+        return this.title;
+    }
+}
+
+If we see the above example, inside the Component Decorator we are adding template key which take HTML markup as value
+
+Inside the HTML markup,we can refer to the CoursesComponent class using its methods or variables using syntax like
+{{getTitle}}--this is called as interpolation
+
+Directives:
+use backtick(near 1 in the keyboard) mark to add multiple lines in the HTML markup
+
+use Directives to manipulate DOM element
+Example:ngFor is an Directive to get the for each statement
+
+@Component({
+    selector:'courses', //refer courses
+    template:
+    `<h2>{{getTitle()}}</h2>
+    <ul>
+    <li *ngFor="let course of courses">
+    {{course}}
+    </li>
+    </ul>
+    `
+})
+
+
+Services:
+In real world application,we get the data from HTTP endpoints
+To seperate the component implementation with the data,we create service file in the app folder with the below naming conventiom
+<componentname>.service.ts
+
+In this typescript file,we call the http endpoint and get the data
+
+To use this service in the component,we use dependency injection
+
+Dependency Injection:
+If we want to use any dependencies in any class,Framework will automatically provide the instance of that Dependency in your current class
+
+Consider Angular Framework:
+We created Service class to get the data by calling HTTP endpoint
+Now in the component if we want to use that service class,
+we ask the framework to inject the dependency which is service in the constructor of that component
+
+Example:
+class CoursesComponent{
+constructor(service:<service name>){
+this.courses=service.<whatever you want to get from the service>
+}
+}
+
+But for the framework to inject this dependency,we register this serice in the app.module.ts where this file contains all the components along with the services.
+
+inside NgModule Declaration,we have Providers array
+Add this service in this Providers array
+
+The way this Dependency injects is like it creates one instance of that dependency for that application which we call it as singleton application
+
+//As we know we can create components using Angular Command Line Interface,
+similarly we can create services using CLI by below command
+ng g s <servicename>
+
 References:
 https://www.youtube.com/watch?v=k5E2AVpwsko
 
