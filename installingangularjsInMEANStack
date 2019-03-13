@@ -363,6 +363,19 @@ The way this Dependency injects is like it creates one instance of that dependen
 similarly we can create services using CLI by below command
 ng g s <servicename>
 
+Routing and Navigation:
+1.Configuring Routes
+2.implementing Single Page Application
+3.using query parameter
+
+Router Module:
+Steps:
+1.Configure the routes
+2.Add a router outlet
+3.add links
+
+
+
 References:
 https://www.youtube.com/watch?v=k5E2AVpwsko
 
