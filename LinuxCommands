@@ -27,6 +27,199 @@ Whenever we open the new terminal,we can set your own title using below commands
 set-title "git"
 
 
+To find different shells provided by your Linux,please run below command
+cat /etc/shells
+
+bash-bourne again shell
+
+TO find bash shell,use which shell
+
+touch command used to create empty files
+touch hello.sh
+
+Linux scripts are interpreted by OS but ot compiled
+
+To change permissions of the file
+
+chmod +x <file name>
+
+To insert some commands in the shell scripts,use below command
+#<comment name>
+
+Writing scripts:
+1.if you are writing scripts,start with below line
+#! /bin/bash --this tells the interpreter that this is the shell scripts
+
+2.Define variables
+--System variables
+--User Defined variables
+
+
+#System defined variables
+echo $BASH
+echo $BASH_VERSION
+echo $HOME
+echo $PWD
+
+#User Defined variables
+name=Mark
+echo $name
+
+Varibale should not start with number
+10val ---is wrong way of writing the variables
+
+If you want to read user input in the script,use below commsnd
+read <name of the variable>
+
+If you want to read multple variables,use below caoomad
+read <variable1> <variable2> <variable3>
+
+If you want user to enter the variable name in the same line or prompt use -p flag
+read -p 'username' :user_val
+
+If you want to user to enter password and don't show it in the command prompt,use below flag
+read -sp 'password' pass_val #s is the flag used to hide the user input in the prompt
+
+
+To allow the user to enter an array use -a flag
+
+read -p names
+
+For user to read the variables from the array input
+
+#{names[0]}, ${names[1]}
+
+
+Pass arguments to the bash script:
+If you pass any arguments ,it will be by default store in the below values
+$1, $2, $3
+
+$0 -#is the name of the script
+
+Another way to get the input arguments is to store in the array
+args=("$@")
+
+echo #{args[0]}
+
+echo $@-#print all arguments passed
+echo $#-print the number of the arguments
+
+Use if statements in the script:
+
+if[condition]
+then 
+    statement
+fi
+
+
+Conditionals let us decide whether to perform an action or not, this decision is taken by evaluating an expression.
+
+Expressions 
+An expression can be: String comparison, Numeric comparison, File operators and Logical operators and it is represented by [expression]:
+String Comparisons:  
+---------------------------------
+=  compare if two strings are equal
+!=  compare if two strings are not equal
+-n  evaluate if string length is greater than zero
+-z  evaluate if string length is equal to zero 
+
+Examples: 
+[ s1 = s2 ]  (true if s1 same as s2, else false)
+[ s1 != s2 ]  (true if s1 not same as s2, else false)
+[ s1 ]   (true if s1 is not empty, else false)
+[ -n s1 ]   (true if s1 has a length greater then 0, else false)
+[ -z s2 ]   (true if s2 has a length of 0, otherwise false)
+
+Number Comparisons: 
+------------------------------------
+-eq compare if two numbers are equal
+-ge compare if one number is greater than or equal to a number
+-le  compare if one number is less than or equal to a number
+-ne  compare if two numbers are not equal
+-gt  compare if one number is greater than another number
+-lt  compare if one number is less than another number 
+
+Examples: 
+[ n1 -eq n2 ]  (true if n1 same as n2, else false)
+[ n1 -ge n2 ]  (true if n1greater then or equal to n2, else false)
+[ n1 -le n2 ]  (true if n1 less then or equal to n2, else false)
+[ n1 -ne n2 ]  (true if n1 is not same as n2, else false)
+[ n1 -gt n2 ]  (true if n1 greater then n2, else false)
+[ n1 -lt n2 ]  (true if n1 less then n2, else false)
+
+
+if [ $count -eq 10 ]
+then 
+    echo 'Condition is true'
+fi
+
+if [ $count -eq 9 ]
+then 
+    echo 'Condition is true'
+else 
+    echo 'Condition is false'
+fi
+
+if [ $count -eq 9 ]
+then 
+    echo 'Condition is true'
+elif [ $count -eq 10 ]
+then
+    echo 'condition isss'
+else 
+    echo 'Condition is false'
+fi
+
+echo -e "Enter the file name : \c" ==this will make the cursot is in the same line
+check file exists or not
+
+if [-e $file_name] 
+if [-f $file_name] --if the file exists and it is regular file or not
+if [-d $file_name] --if the file is direcory or not
+if [-s $file_name] --if the file is empty or not
+
+character special file --file contain normal text
+if [-c $file_name]--this checks file is character special file or not
+block special file --file contains which is video or image or binary file
+if [-b $file_name] --if the file is block special file or not
+if [-r $file_name]--if the file has read permissions
+if [-w $file_name]--if the file has write permission
+if [-x $file_name]--if the file has execute command
+
+rwx --read write execute command
+
+
+
+cat >test--it makes to enter the content in the file and to exit the cat command press ctrl+d command
+
+#!  /bin/bash
+
+
+echo -e "Enter the file name : \c"
+
+read file_name
+
+if [ -f $file_name ]
+then
+    if [ -w $file_name ]
+    then
+        echo "Enter information to append to the file .To quit press ctrl +d"
+        cat >> $file_name
+    else
+        echo "$file_name don't have write permissions"
+    fi
+else
+    echo "$file_name doesn't exist"
+fi
+
+
+
+
+
+
+
+
+
 
 
 
