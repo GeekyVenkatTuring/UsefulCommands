@@ -1,0 +1,91 @@
+Functional Programming:'
+Programming with pure functions as building blocks
+
+Jargons used in Functional Programming:
+1.Pure Functions
+2.Immuntability
+3.Higher Order Functions
+4.Recursion
+5.Lambda Calculus
+6.No Side Effects
+7.Currying
+8.Category theory
+9.Type Strictness
+
+Based on Lambda calculus invented in 1930 by Alonzo Church
+
+Functional Programming is programming without any assignment statements
+
+Example between Statement and Expression:
+A statement is a complete line of code that performs some action, while an expression is any section of the code that evaluates to a value
+
+Example:
+//statement
+int weight=70;
+if(weight<50){
+comment="aa";
+}then{
+comment="nn"
+}
+
+//Expression
+String comment=weight<50?"aa":"bb"
+
+OO pattern/principle:
+Single Responsibility Principle
+Open/closed principle
+Dependency Inversion Principle
+Interface Segregation Principle
+Factory Pattern
+Strategy Pattern
+Decorator Pattern
+Visitor Pattern
+
+FP pattern/principle:
+Functions
+Fuctions
+Functions
+
+Pure Functions:
+For valid input there is one and only one output
+Doesn't modify variables out of its scopes
+In general,functions that have no side effects are pure functions
+Advantages:
+1.Consistent reproducible results
+2.Easier parallelization
+3.Memorization or caching
+4.Laziness
+5.referential transparency
+
+Functions as First class citizens/Higher order Functions
+First class citizens:
+Functions are treated as First class citizens and can be assigned to value and can be put in a Data structure to queue it
+
+Functions can be passed to other functions -Higher order functions
+HIgher order functions either accept functions as arguments or return functions
+
+Currying:
+Technique of converting multiple arguments into chain of functions
+
+Higher order functions:
+
+Map
+filter
+Reduce
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
