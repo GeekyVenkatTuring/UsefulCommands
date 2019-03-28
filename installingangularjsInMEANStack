@@ -86,7 +86,7 @@ Course Strcture:
 3.Final Project
 
 TypeScript Fundamentals:
-It is superset of Typescript
+It is superset of Javascript
 
 TypeScript has strong typing which javascript doesn't have
 TypeScript has Object oriented features which Javascript doesn't have 
@@ -373,6 +373,13 @@ Steps:
 1.Configure the routes
 2.Add a router outlet
 3.add links
+
+
+RxJS tutorial:
+Observables,observer and Subscribers:
+
+Observables:Wrapper around data source
+datasource means stream of values .Basically we use observables for asynchronous data
 
 
 

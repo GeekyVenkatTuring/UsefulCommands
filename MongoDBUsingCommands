@@ -76,6 +76,12 @@ db.<collectionname>.update({'<filtering criteria field':"<value of that filterin
 example:
 db.category.update({name:"Electronics"},{$set:{sub_category:[ObjectId("5c81c9927afeab286b341f2e")]}})
 
+to unset field to null value,please use $unset operator
+db.category.update({
+name:"Electronics",
+{$unset:{sub_category:[ObjectId("5c81c9927afeab286b341f2e")]}}
+});
+
 
 To add document id to another document:
 Projection in the MongoDB:
